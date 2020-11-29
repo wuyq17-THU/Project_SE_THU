@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Head msg="head test"></Head>
+    <Navi></Navi>
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
@@ -9,12 +10,14 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import Head from './components/Head.vue'
+import Navi from './components/Navi.vue'
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
-    Head
+    Head,
+    Navi
   }
 }
 </script>
