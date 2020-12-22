@@ -1,18 +1,17 @@
 <template>
   <div class="navigator">
     <div id="navi">
-        <a>场地管理</a>
-        <a>个人中心</a>
-        <a>退出系统</a>
+        <router-link to='/' id="admin">场地管理</router-link> 
+        <router-link to='/' id="per">个人中心</router-link>
+        <router-link to='/' id="exit">退出系统</router-link>
     </div>
-    <h1>{{ msg }}</h1>
-    <p>点击下方登录进入，如已经登录请点击上方home链接</p>    
+    <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Head',
+  name: 'Navi',
   props: {
     msg: String
   }
@@ -20,15 +19,43 @@ export default {
 </script>
 
 <style>
+.navigator{
+    padding: 0px;
+    margin: 0px;
+    
+}
 #navi{
-    position: fixed;
-    top: 140px;
-    background-color: rgb(201, 201, 201);
-    width: 1440px;
+    position: relative;
+    background-color: rgba(228, 228, 228, 0.863);
     height: 30px;
+    padding-top: 5px;
 }
 
-#navi p{
+#admin {
+    position: relative;
     float: left;
+    margin-left: 20px;
+}
+#exit {
+    position: relative;
+    float: right;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+#per {
+    position: relative;
+    float: right;
+    margin-right: 40px;
+}
+
+#navi a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+
+
+#navi a.router-link-exact-active {
+  color: rgb(102, 17, 151);
 }
 </style>
