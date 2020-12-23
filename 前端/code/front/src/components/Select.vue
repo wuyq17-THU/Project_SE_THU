@@ -3,11 +3,11 @@
     <el-row type="flex" justify="center">
         <el-col :span="4">
             <el-card :body-style="{ padding: '0px' }">
-            <img src="../img/tennis.jpeg" class="image">
+            <img src="../assets/tennis.jpeg" class="image">
             <div style="padding: 14px;">
                 <span>网球场</span>
                 <div class="bottom clearfix">
-                <el-button type="text" class="button">预约</el-button>
+                <el-button type="text" class="button" @click="orderT">预约</el-button>
                 </div>
             </div>
             </el-card>
@@ -15,11 +15,11 @@
           
           <el-col :span="4" :offset="4">
             <el-card :body-style="{ padding: '0px' }">
-            <img src="../img/yumaoqiu.jpeg" class="image">
+            <img src="../assets/yumaoqiu.jpeg" class="image">
             <div style="padding: 14px;">
                 <span>羽毛球场</span>
                 <div class="bottom clearfix">
-                <el-button type="text" class="button">预约</el-button>
+                <el-button type="text" class="button" @click="orderB">预约</el-button>
                 </div>
             </div>
             </el-card>
@@ -31,13 +31,20 @@
 <script>
 export default {
     name: 'Select',
-    
+    methods:{
+        orderT(){
+            this.$router.push('/ordert')
+        },
+        orderB(){
+            this.$router.push('/orderb')
+        }
+    }
 }
 </script>
 
 <style scoped>
   .select {
-      margin-top: 80px;
+      margin-top: 240px;
   }
 
   .select span {

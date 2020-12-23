@@ -1,12 +1,19 @@
 <template>
   <div class="First">
-      <div id="head">
-          <Head></Head>
-          <Navi></Navi>
-          <Step></Step>
+    <el-container>
+      <el-header>
+        <div id="head">
+            <Head></Head>
+            <Navi></Navi>
+            <Step msg="0"></Step>
+        </div>
+      </el-header>
+      <el-container>
+        <el-main>
           <Select></Select>
-      </div>
-      
+        </el-main>
+      </el-container>
+    </el-container>
   </div>
 </template>
 

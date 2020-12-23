@@ -1,6 +1,6 @@
 <template>
   <div class="step">
-    <el-steps :active="0" finish-status="success" simple style="margin-top: 0px">
+    <el-steps :active="msg" finish-status="success" simple style="margin-top: 0px">
         <el-step title="1 选择场馆" ></el-step>
         <el-step title="2 预约场地" ></el-step>
         <el-step title="3 支付" ></el-step>
@@ -16,8 +16,11 @@ export default {
     name: 'Step',
     data() {
         return {
-            active: 0
+            active: 1
         };
+    },
+    props: {
+        msg : String
     },
     methods: {
       next() {
