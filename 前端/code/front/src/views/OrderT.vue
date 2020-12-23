@@ -28,7 +28,12 @@
             </div>
           </el-aside>
           <el-main>
-            <h1>main</h1>
+            <OrderTable></OrderTable>
+            <el-button type="primary" id="confirm" plain @click="order">确认预约</el-button>
+            <div class="comments">
+              <h1>评论</h1>
+              <Comments></Comments>
+            </div>
           </el-main>
         </el-container>
       </el-container>
@@ -40,28 +45,61 @@
 import Head from '@/components/Head.vue'
 import Navi from '@/components/Navi.vue'
 import Step from '@/components/Step.vue'
-
+import OrderTable from '@/components/OrderTable.vue'
+import Comments from '../components/comments.vue'
 
 export default {
   name: 'First',
   data() {
-        return {
-            active: 2
-        };
+    return{
+        active: 2,
+        activeName:'first',
+      }
     },
   components: {
     Head,
     Navi,
     Step,
+    OrderTable,
+    Comments,
+  },
+  methods: {
+    handleClick(tab, event) {
+      console.log(tab, event);
+    },
+    order(){
+      this.$confirm('<p>场地一 星期三 08:00-09:00</p><p>场地二 星期三 08:00-09:00</p><p>场地三 星期三 08:00-09:00</p>', 
+      '您确定预约吗？', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'info',
+          dangerouslyUseHTMLString: true
+        }).then(() => {          
+          this.$router.push('/test');
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消预约'
+          });          
+        });
+    }
+
   }
 }
 </script>
 
 <style >
+#confirm{
+  margin-top: 40px;
+}
+
+.comments{
+  background-color: #f3f5f7;
+}
+
 #info p{
   text-align: left;
   padding: 2px;
-  
 }
 #head{
     margin: 0px;

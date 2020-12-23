@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import First from '../views/First.vue'
 import OrderT from '../views/OrderT.vue'
 import OrderB from '../views/OrderB.vue'
+import Test from '../views/test.vue'
+import login from '../views/login.vue'
 
 Vue.use(VueRouter)
 
@@ -35,6 +37,16 @@ const routes = [
     path: '/orderb',
     name: 'Orderb',
     component: OrderB
+  },
+  {
+    path: '/test',
+    name: 'test',
+    component: Test
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: login
   },
 ]
 
