@@ -17,85 +17,85 @@
                 width="70"
                 prop="num"
                 label="08:00-09:00">                      
-                <el-checkbox></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 width="70"
                 prop="num"
                 label="09:00-10:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>            
             <el-table-column
                 prop="num"
                 width="70"
                 label="10:00-11:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="11:00-12:00">
-                <el-checkbox></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="12:00-13:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="13:00-14:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="14:00-15:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="15:00-16:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="16:00-17:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="17:00-18:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="18:00-19:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="19:00-20:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="20:00-21:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="21:00-22:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             </el-table>
             </el-tab-pane>
@@ -115,85 +115,85 @@
                 width="70"
                 prop="num"
                 label="08:00-09:00">                      
-                <el-checkbox ></el-checkbox>                                         
+                <el-checkbox v-model="checked"></el-checkbox>           
             </el-table-column>
             <el-table-column
                 width="70"
                 prop="num"
                 label="09:00-10:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>            
             <el-table-column
                 prop="num"
                 width="70"
                 label="10:00-11:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="11:00-12:00">
-                <el-checkbox></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="12:00-13:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="13:00-14:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="14:00-15:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="15:00-16:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="16:00-17:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="17:00-18:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="18:00-19:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="19:00-20:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="20:00-21:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="21:00-22:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             </el-table>
             </el-tab-pane>
@@ -213,89 +213,96 @@
                 width="70"
                 prop="num"
                 label="08:00-09:00">                      
-                <el-checkbox ></el-checkbox>                                         
+                <el-checkbox v-model="checked"></el-checkbox>                                         
             </el-table-column>
             <el-table-column
                 width="70"
                 prop="num"
                 label="09:00-10:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>            
             <el-table-column
                 prop="num"
                 width="70"
                 label="10:00-11:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="11:00-12:00">
-                <el-checkbox></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="12:00-13:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="13:00-14:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="14:00-15:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="15:00-16:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="16:00-17:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="17:00-18:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="18:00-19:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="19:00-20:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="20:00-21:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             <el-table-column
                 prop="num"
                 width="70"
                 label="21:00-22:00">
-                <el-checkbox ></el-checkbox>
+                <el-checkbox v-model="checked"></el-checkbox>
             </el-table-column>
             </el-table>
             </el-tab-pane>
         </el-tabs>
+        <el-row>
+            
+            <el-button type="primary" @click="checkall">全选</el-button>
+            
+            <el-button type="danger" @click="cancel">取消全选</el-button>
+        </el-row>
+        
     </div>
 </template>
 
@@ -303,7 +310,7 @@
 export default {
     data(){
         return {
-            
+            checked: true,
             tableData: [{
               date: '星期一',
 
@@ -327,6 +334,14 @@ export default {
               
             }]
         };
+    },
+    methods:{
+        checkall(){
+            this.checked = true;
+        },
+        cancel(){
+            this.checked = false;
+        }
     }
 }
 </script>

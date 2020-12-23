@@ -6,6 +6,9 @@ import OrderT from '../views/OrderT.vue'
 import OrderB from '../views/OrderB.vue'
 import Test from '../views/test.vue'
 import login from '../views/login.vue'
+import confirm from '../views/Confirm.vue'
+import personal from '../views/Personal.vue'
+import manage from '../views/Manage.vue'
 
 Vue.use(VueRouter)
 
@@ -47,6 +50,21 @@ const routes = [
     path: '/login',
     name: 'login',
     component: login
+  },
+  {
+    path: '/confirm',
+    name: 'confirm',
+    component: confirm
+  },
+  {
+    path: '/personal',
+    name: 'personal',
+    component: personal
+  },
+  {
+    path: '/manage',
+    name: 'manage',
+    component: manage
   },
 ]
 

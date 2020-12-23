@@ -2,8 +2,8 @@
   <div class="navigator">
     <div id="navi">
         <router-link to='/' id="admin">场地管理</router-link> 
-        <router-link to='/' id="per">个人中心</router-link>
-        <router-link to='/' id="exit">退出系统</router-link>
+        <router-link to='/personal' id="per">个人中心</router-link>
+        <router-link to='/login' id="exit">退出系统</router-link>
     </div>
     <router-view/>
   </div>

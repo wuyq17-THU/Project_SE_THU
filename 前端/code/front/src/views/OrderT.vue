@@ -75,7 +75,7 @@ export default {
           type: 'info',
           dangerouslyUseHTMLString: true
         }).then(() => {          
-          this.$router.push('/test');
+          this.$router.push('/confirm');
         }).catch(() => {
           this.$message({
             type: 'info',
