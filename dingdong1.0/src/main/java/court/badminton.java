@@ -1,6 +1,6 @@
 //羽毛球馆，网球馆用1表示，羽毛球馆用2表示
 //场地用place（场地几），date（星期几），time（时间段几），status（什么状态，0可预定，1已预订，2暂不能用）
-package com.example.demo;
+package court;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

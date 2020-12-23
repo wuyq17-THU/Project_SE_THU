@@ -1,13 +1,19 @@
 //网球场订单
 //订单由id，place（场地），date（星期），time（时间段），user（客户）组成
-package com.example.demo;
+package court;
 
+import court.entities.BadmintonTicket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import court.entities.TennisTicket;
+
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 public class tennisticket {
 	
@@ -22,31 +28,39 @@ public class tennisticket {
 	@RequestMapping(value="/tennisticket_getfromUser", method=RequestMethod.GET)
 	//根据用户的名字查询他的订单信息
 	//TODO需要返回一个订单类
-	public 订单类 tennisticket_getfromUser(String GetUser)  {
+	public TennisTicket tennisticket_getfromUser(String GetUser)  {
 		String sql = "SELECT id FROM tennisticket where user=";
 		sql = sql+'"'+GetUser+'"';
+		TennisTicket ticket = new TennisTicket();
 		int id = jdbcTemplate.queryForObject(sql,Integer.class);
+		ticket.setId(id);
 
 		sql = "SELECT place FROM tennisticket where user=";
 		sql = sql+'"'+GetUser+'"';
 		int place = jdbcTemplate.queryForObject(sql,Integer.class);
-		
+		ticket.setPlace(place);
+
 		sql = "SELECT date FROM tennisticket where user=";
 		sql = sql+'"'+GetUser+'"';
 		int date = jdbcTemplate.queryForObject(sql,Integer.class);
-		
+		ticket.setDate(date);
+
 		sql = "SELECT time FROM tennisticket where user=";
 		sql = sql+'"'+GetUser+'"';
 		int time = jdbcTemplate.queryForObject(sql,Integer.class);
-		
+		ticket.setTime(time);
+		return ticket;
 	}
 	@RequestMapping(value="/tennisticket_getAll", method=RequestMethod.GET)
-	public List<订单类> tennisticket_getAll(int type)  {
+	public List<TennisTicket> tennisticket_getAll(int type)  {
 		
 		String sql = "SELECT user FROM tennisticket";
-		List<String>users = jdbcTemplate.queryForList(sql,string.class);
-		
-		//TODO对list中的所有对象用tennisticket_getfromUser即可查询一个订单类的List
-		
+		List<String> users = jdbcTemplate.queryForList(sql,String.class);
+
+		List<TennisTicket> tickets = new ArrayList();
+		for(String user:users){
+			tickets.add(tennisticket_getfromUser(user));
+		}
+		return tickets;
 	}
 }
