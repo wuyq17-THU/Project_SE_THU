@@ -15,7 +15,7 @@
                 <div class="userid">USER_2</div>
             </el-col>
             <el-col :span="18">                
-                <div class="comment">和朋友打网球很开心，五星好评</div>
+                <div class="comment">和朋友打球很开心，五星好评</div>
             </el-col>
         </el-row>
         <el-pagination
