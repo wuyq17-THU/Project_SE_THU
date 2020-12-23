@@ -1,20 +1,18 @@
 package security.mapper;
 
+import mysqlData.handler.UserHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import security.entity.User;
+import security.entity.LoginUser;
 
 
 public class UserMapper {
     @Autowired
-    private JdbcTemplate jdbcTemplate;
-    public User findByUsername(String username){
-        User user = new User();
-        String sql = "SELECT Password FROM Login Msg where Name = " + '"' + username + '"';
-        user.setPassword(jdbcTemplate.queryForObject(sql, String.class));
-        user.setUsername(username);
-        sql = "SELECT User_id FROM Login Msg where Name = " + '"' + username + '"';
-        user.setID(jdbcTemplate.queryForObject(sql,Integer.class));
-        return user;
+    private UserHandler userHandler;
+    public LoginUser findByUsername(String username){
+        LoginUser loginUser = new LoginUser();
+        loginUser.setPassword(userHandler.getPwByName(username));
+        loginUser.setUsername(username);
+        return loginUser;
     }
 }

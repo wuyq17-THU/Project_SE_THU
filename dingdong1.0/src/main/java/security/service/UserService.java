@@ -1,6 +1,6 @@
 package security.service;
 
-import security.entity.User;
+import security.entity.LoginUser;
 import security.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ public class UserService {
     @Autowired
     UserMapper userMapper;
 
-    public User findByUsername(String username) {
+    public LoginUser findByUsername(String username) {
         return userMapper.findByUsername(username);
     }
 }
