@@ -18,7 +18,7 @@ public class UserLogin {
     @Autowired
     TokenService tokenService;
 
-    @PatchMapping("/login")
+    @PatchMapping("/api/user/login")
     @ResponseBody
     public Object login(@RequestBody LoginUser loginUser){
         LoginUser loginUserForBase = userService.findByUsername(loginUser.getUsername());

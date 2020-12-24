@@ -30,6 +30,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
         if(!(object instanceof HandlerMethod)){
             return true;
         }
+
         HandlerMethod handlerMethod=(HandlerMethod)object;
         Method method=handlerMethod.getMethod();
         //检查是否有passtoken注释，有则跳过认证
@@ -65,6 +66,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                 } catch (JWTVerificationException e) {
                     throw new RuntimeException("401");
                 }
+                httpServletRequest.setAttribute("user", loginUser.getUsername());
                 return true;
             }
         }

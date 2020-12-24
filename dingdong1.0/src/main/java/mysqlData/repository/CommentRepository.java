@@ -1,9 +1,9 @@
 package mysqlData.repository;
 
-import mysqlData.bean.Court;
+import mysqlData.bean.Comment;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CourtRepository extends CrudRepository<Court, Integer> {
+public interface CommentRepository extends CrudRepository<Comment, Integer> {
 }

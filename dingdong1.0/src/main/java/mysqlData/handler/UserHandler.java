@@ -6,24 +6,39 @@ import mysqlData.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class UserHandler {
     @Resource
     private UserRepository userRepository;
-    public void save(User user){
+
+    public void save(User user) {
         userRepository.save(user);
     }
 
-    public Iterable<User> getAll(){
+    public Iterable<User> getAll() {
         return userRepository.findAll();
     }
 
-    public String getPwByName(String user_name){
+    public String getPwByName(String user_name) {
         return userRepository.findByUser_name(user_name).getPassword();
     }
 
-    public Iterable<Order> getOrdersByName(String user_name){
+    public User getUserByName(String user_name) {
+        return userRepository.findByUser_name(user_name);
+    }
+
+    public Iterable<Order> getOrdersByName(String user_name) {
         return userRepository.findByUser_name(user_name).getHistory_order();
+    }
+
+    public void addHistoryOrderByUsername(String username, Order order){
+        getUserByName(username).getHistory_order().add(order);
+        return;
+    }
+
+    public List<Order> getHistoryOrderByUsername(String username){
+        return getUserByName(username).getHistory_order();
     }
 }

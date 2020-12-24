@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import java.util.List;
 
@@ -22,6 +19,8 @@ public class Gym {
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
     String sport_kind;
+    @OneToMany
     List<Court> courts;
+    @OneToMany
     List<Comment> comments;
 }
