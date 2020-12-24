@@ -23,4 +23,5 @@ public class Gym {
     int id;
     String sport_kind;
     List<Court> courts;
+    List<Comment> comments;
 }
