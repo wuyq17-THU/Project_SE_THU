@@ -12,16 +12,21 @@ import java.util.List;
 public class GymHandler {
     @Resource
     private GymRepository gymRepository;
-    public Gym findById(int id){
-        return gymRepository.findById(id).get();
+
+    public Gym findById(int id) {
+        if (gymRepository.findById(id).isPresent()) {
+            return gymRepository.findById(id).get();
+        }
+        return null;
     }
 
-    public List<Comment> getCommentsByGymId(int gymId){
+    public List<Comment> getCommentsByGymId(int gymId) {
         return findById(gymId).getComments();
     }
 
-    public void addCommentByGymId(int gymId, Comment comment){
-        gymRepository.findById(gymId).get().getComments().add(comment);
-        return;
+    public void addCommentByGymId(int gymId, Comment comment) {
+        if (gymRepository.findById(gymId).isPresent()) {
+            gymRepository.findById(gymId).get().getComments().add(comment);
+        }
     }
 }

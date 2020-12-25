@@ -67,14 +67,14 @@ public class PostRentApplyController {
 
         //计算日期，生成并保存订单
         LocalDate orderDate = LocalDate.now().plusWeeks(1).with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY)).plusDays(rentApplyRequest.weekNum);
-        Order order = new Order(0, gym, court, userHandler.getUserByName(username), true, true, orderDate, rentApplyRequest.timeNum);
+        Order order = new Order(0, gym, court, userHandler.getUserByName(username), true, false, orderDate, rentApplyRequest.timeNum);
         orderHandler.save(order);
 
         //在用户中添加历史订单
         userHandler.addHistoryOrderByUsername(username, order);
 
         //在场地中更改状态
-        if (!courtHandler.changeCourtStatus(court, rentApplyRequest.weekNum, rentApplyRequest.timeNum)) {
+        if (!courtHandler.changeCourtStatusToRented(court, rentApplyRequest.weekNum, rentApplyRequest.timeNum)) {
             return new RentApplyResponse(false, "court is rented of unavailable");
         }
 

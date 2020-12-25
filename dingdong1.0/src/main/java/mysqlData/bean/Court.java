@@ -19,4 +19,8 @@ public class Court {
     @JoinColumn(name = "gym_id")
     Gym gym;
     int[][] time_status;    // 0:rentable, 1:rented, -1:not available
+
+    public void setSpecificTimeStatus(int weekNum, int timeNum, int status){
+        time_status[weekNum][timeNum] = status;
+    }
 }

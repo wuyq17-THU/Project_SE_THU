@@ -29,16 +29,11 @@ public class UserHandler {
         return userRepository.findByUser_name(user_name);
     }
 
-    public Iterable<Order> getOrdersByName(String user_name) {
-        return userRepository.findByUser_name(user_name).getHistory_order();
-    }
-
-    public void addHistoryOrderByUsername(String username, Order order){
+    public void addHistoryOrderByUsername(String username, Order order) {
         getUserByName(username).getHistory_order().add(order);
-        return;
     }
 
-    public List<Order> getHistoryOrderByUsername(String username){
+    public List<Order> getHistoryOrderByUsername(String username) {
         return getUserByName(username).getHistory_order();
     }
 }
