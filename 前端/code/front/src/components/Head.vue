@@ -3,9 +3,7 @@
     <div id="head">
         <h1>叮咚</h1>
         <p>清华大学工会场馆预约系统</p>
-    </div>
-    <h1>{{ msg }}</h1>
-    <p>点击下方登录进入，如已经登录请点击上方home链接</p>    
+    </div>    
   </div>
 </template>
 
@@ -18,12 +16,24 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.hello{
+  padding: 0px;
+  margin: 0px;
+  
+}
 #head{
-    position: fixed;
-    top:0px;
-    background-color: blueviolet;
-    width: 1440px;
+    position: relative;
+    background-color: rgb(102, 17, 151);
     height: 140px;
+    
+}
+#head h1{
+  color: rgb(236, 245, 245);
+  margin-top: 0px;
+  padding-top: 20px;
+}
+#head p{
+  color: rgb(226, 236, 236);
 }
 </style>
