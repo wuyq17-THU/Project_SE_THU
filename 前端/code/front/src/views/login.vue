@@ -1,4 +1,7 @@
 <template>
+<div>
+	<Head></Head>
+	<Navi></Navi>
 	<p class="login">
 		<el-tabs v-model="activeName" @tab-click="handleClick">
 			<el-tab-pane label="登录" name="first">
@@ -16,10 +19,15 @@
 			</el-tab-pane>			
 		</el-tabs>
 	</p>
+</div>
 </template>
  
 <script>
+import Head from '@/components/Head.vue'
+
+
 export default {
+	
 	data() {
 		var validatePass = (rule, value, callback) => {
 			if (value === '') {
@@ -53,37 +61,38 @@ export default {
 			this.$refs[formName].resetFields();
 		},
         //提交表单
-        submitForm() {
-            this.$router.push({name:'First'});
-        }
-		/*submitForm(formName,username,pass) {
+        
+		submitForm(formName,username,pass) {
 			this.$refs[formName].validate(valid => {
 				if (valid) {
-                    this.axios.patch('/api/v1/login',{
-                        'username':username,
+                    this.axios.patch('/api/user/login',{
+                        'userName':username,
                         'password':pass
                     }).then((response) => {
 						console.log(response.data);
-						if(response.status === 200){
-							console.log(response.status);
-							localStorage.setItem('token',response.data.jwt);
+						if(response.data.success === true){
+							console.log(response.data.success);
+							localStorage.setItem('token',response.data.msg);
 							this.$message({
 								type: 'success',
 								message: '登录成功'
 							});
-							this.$router.push({name:'List'});
+							this.$router.push({name:'First'});
 						}
                     });
 					
 				} else {
-					
 					console.log('error submit!!');
 					return false;
 				}
             });
             
-		}*/
-    }
+		}
+	},
+	components: {
+    Head,
+    
+  },
 }
 </script>
  
@@ -91,6 +100,7 @@ export default {
 .login {
 	width: 400px;
 	margin: 0 auto;
+	margin-top: 100px;
 }
  
 .el-tabsitem {

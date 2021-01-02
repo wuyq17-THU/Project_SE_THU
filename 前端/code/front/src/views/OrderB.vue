@@ -28,8 +28,8 @@
             </div>
           </el-aside>
           <el-main>
-            <OrderTable></OrderTable>
-            <el-button type="primary" id="confirm" plain @click="order">确认预约</el-button>
+            <Order gymId=1></Order>
+            
             <div class="comments">
               <h1>评论</h1>
               <Comments></Comments>
@@ -45,7 +45,7 @@
 import Head from '@/components/Head.vue'
 import Navi from '@/components/Navi.vue'
 import Step from '@/components/Step.vue'
-import OrderTable from '@/components/OrderTable.vue'
+import Order from '@/components/Order.vue'
 import Comments from '../components/comments.vue'
 
 export default {
@@ -60,30 +60,13 @@ export default {
     Head,
     Navi,
     Step,
-    OrderTable,
+    Order,
     Comments,
   },
   methods: {
     handleClick(tab, event) {
       console.log(tab, event);
     },
-    order(){
-      this.$confirm('<p>场地一 星期三 08:00-09:00</p><p>场地二 星期三 08:00-09:00</p><p>场地三 星期三 08:00-09:00</p>', 
-      '您确定预约吗？', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'info',
-          dangerouslyUseHTMLString: true
-        }).then(() => {          
-          this.$router.push('/confirm');
-        }).catch(() => {
-          this.$message({
-            type: 'info',
-            message: '已取消预约'
-          });          
-        });
-    }
-
   }
 }
 </script>
