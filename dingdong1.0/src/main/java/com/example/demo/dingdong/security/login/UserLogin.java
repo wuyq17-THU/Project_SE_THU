@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.sun.activation.registries.LogSupport.log;
 
 @Slf4j
 @RestController
@@ -24,12 +23,7 @@ public class UserLogin {
     @PatchMapping("/login")
     @ResponseBody
     public Object login(@RequestBody LoginUser loginUser) {
-        LoginUser loginUserForBase = null;
-        try {
-            loginUserForBase = userService.findByUsername(loginUser.getUsername());
-        }catch (Exception e){
-            log("exception happened here");
-        }
+        LoginUser loginUserForBase = userService.findByUsername(loginUser.getUsername());
         if (loginUserForBase == null) {
             Map<String, String> result = new HashMap<>();
             result.put("success", "false");
@@ -38,7 +32,7 @@ public class UserLogin {
         } else {
             String token = tokenService.getToken(loginUserForBase);
             Map<String, String> result = new HashMap<>();
-            result.put("success", "True");
+            result.put("success", "true");
             result.put("msg", token);
             return result;
         }

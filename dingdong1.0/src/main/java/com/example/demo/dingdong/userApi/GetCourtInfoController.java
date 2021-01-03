@@ -8,10 +8,7 @@ import com.example.demo.dingdong.mysqlData.bean.Court;
 import com.example.demo.dingdong.mysqlData.bean.Gym;
 import com.example.demo.dingdong.mysqlData.handler.GymHandler;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -22,13 +19,14 @@ public class GetCourtInfoController {
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
-    private static class CourtInfoResponse {
+    public static class CourtInfoResponse {
         boolean success;
         int[][] courts;
         String[] dateInfo;
     }
 
-    private static class CourtIndexRequest {
+    @Data
+    public static class CourtIndexRequest {
         int gymId;
         int courtId;
     }
@@ -37,7 +35,7 @@ public class GetCourtInfoController {
     GymHandler gymHandler;
 
     @UserLoginToken
-    @PostMapping("/api/user/court")
+    @PatchMapping("/api/user/court")
     @ResponseBody
     public CourtInfoResponse GetCourtInfo(@RequestBody CourtIndexRequest courtIndexRequest) {
         Gym gym = gymHandler.findById(courtIndexRequest.gymId);
@@ -55,6 +53,6 @@ public class GetCourtInfoController {
         for(int i = 0; i < 7; i++){
             dateInfo[i] = nextMonday.plusDays(i).toString();
         }
-        return new CourtInfoResponse(true, court.getTimeStatus(), dateInfo);
+        return new CourtInfoResponse(true, court.getVectorTimeStatus(), dateInfo);
     }
 }

@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface GymRepository extends CrudRepository<Gym, Integer> {
+    Gym findBySportKind(String sportKind);
+
 }

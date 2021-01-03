@@ -26,7 +26,13 @@ public class GymHandler {
 
     public void addCommentByGymId(int gymId, Comment comment) {
         if (gymRepository.findById(gymId).isPresent()) {
-            gymRepository.findById(gymId).get().getComments().add(comment);
+            Gym gym = gymRepository.findById(gymId).get();
+            gym.addComment(comment);
+            gymRepository.save(gym);
         }
+    }
+
+    public Gym findGymBySportKind(String sportKind){
+        return gymRepository.findBySportKind(sportKind);
     }
 }

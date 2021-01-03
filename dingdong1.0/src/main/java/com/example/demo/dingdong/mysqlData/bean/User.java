@@ -31,4 +31,8 @@ public class User {
     @NonNull
     @Builder.Default
     List<UserOrder> historyUserOrder = new ArrayList<>();
+
+    public void addOrder(UserOrder userOrder){
+        historyUserOrder.add(userOrder);
+    }
 }

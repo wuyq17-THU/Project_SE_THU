@@ -19,7 +19,7 @@ public class GetSelfInfoController {
     @AllArgsConstructor
     @NoArgsConstructor
     private static class SelfInfoResponse{
-        String userName;
+        String username;
         User.UserType userType;
     }
 
