@@ -28,10 +28,10 @@
             </div>
           </el-aside>
           <el-main>
-            <Order gymId=0></Order>            
+            <Order v-bind:gymId="0"></Order>            
             <div class="comments">
               <h1>评论</h1>
-              <Comments></Comments>
+              <Comments v-bind:gymId="0"></Comments>
             </div>
           </el-main>
         </el-container>

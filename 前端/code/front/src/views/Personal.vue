@@ -10,14 +10,36 @@
       </el-header>
       <el-container>
         <el-main>
-          <h1>您当前预约的场地如下：</h1>
-          <p>场地一 星期三 08:00-09:00</p>
-          <p>场地二 星期三 08:00-09:00</p>
-          <p>场地三 星期三 08:00-09:00</p><br>
+          
           <h1>历史预约记录</h1>
-          <p>场地一 星期三 08:00-09:00</p>
-          <p>场地二 星期三 08:00-09:00</p>
-          <p>场地三 星期三 08:00-09:00</p><br>
+          <el-row>
+            <el-col :span="16" :offset="4">
+            <el-table
+              height="250"
+              stripe
+              :data="history"
+              style="width: 100%">
+              <el-table-column
+                prop="gymId"
+                label="场馆"
+                width="180">
+              </el-table-column>
+              <el-table-column
+                prop="courtId"
+                label="场地"
+                width="180">
+              </el-table-column>
+              <el-table-column
+                prop="weekNum"
+                label="星期">
+              </el-table-column>
+              <el-table-column
+                prop="timeNum"
+                label="时间段">
+              </el-table-column>
+          </el-table>
+            </el-col>
+          </el-row>
         </el-main>
       </el-container>
     </el-container>
@@ -32,6 +54,36 @@ import Step from '@/components/Step.vue'
 
 export default {
   name: 'First',
+  data(){
+    return{
+      history: [{        
+                    'gymId':0,
+                    'courtId':1,          
+                    'weekNum':3,
+                    'timeNum':8
+                },{        
+                    'gymId':0,
+                    'courtId':1,          
+                    'weekNum':3,
+                    'timeNum':8
+                },{        
+                    'gymId':0,
+                    'courtId':1,          
+                    'weekNum':3,
+                    'timeNum':8
+                },]
+    
+    }
+  },
+  mounted(){
+    this.axios.get('/api/user/rent/history',
+      {
+          headers:{'Authorization':localStorage.getItem('token')},          
+      }).then((response) => {
+            console.log(response.data);
+            this.history=response.data.orders;            
+      });     
+  },
   components: {
     Head,
     Navi,

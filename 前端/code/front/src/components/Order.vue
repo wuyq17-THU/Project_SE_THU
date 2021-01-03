@@ -358,5 +358,10 @@ export default {
 </script>
 
 <style scoped>
-
+.el-select{
+    margin-left: 20px;
+}
+.el-button{
+    margin: 10px;
+}
 </style>
