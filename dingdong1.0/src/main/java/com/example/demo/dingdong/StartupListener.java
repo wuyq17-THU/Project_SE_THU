@@ -42,44 +42,70 @@ public class StartupListener {
             userRepository.save(user);
         }
 
-        if(gymRepository.findBySportKind("tennis") == null){
+        if (gymRepository.findBySportKind("tennis") == null) {
             log.info("创建网球馆");
-            initialGymDb("tennis");
+            List<Court> courtList1 = new ArrayList<>();
+            Gym gym = Gym.builder()
+                    .sportKind("tennis")
+                    .courts(courtList1)
+                    .comments(new ArrayList<Comment>()).build();
+            gymRepository.save(gym);
+
+            int weeklength = 7;
+            int timelength = 14;
+            String[] templine = new String[timelength];
+            for (int i = 0; i < timelength; i++) {
+                templine[i] = "0";
+            }
+            String temp = String.join(",", templine);
+            String[] temprow = new String[weeklength];
+            for (int i = 0; i < weeklength; i++) {
+                temprow[i] = temp;
+            }
+
+            String beginTimeStatus = String.join("#", temprow);
+
+            courtList1.add(Court.builder().gym(gym).timeStatus(beginTimeStatus).build());
+            courtList1.add(Court.builder().gym(gym).timeStatus(beginTimeStatus).build());
+            courtList1.add(Court.builder().gym(gym).timeStatus(beginTimeStatus).build());
+            courtRepository.saveAll(courtList1);
+            gym.setCourts(courtList1);
+            gymRepository.save(gym);
         }
-        if(gymRepository.findBySportKind("badminton") == null){
+        if (gymRepository.findBySportKind("badminton") == null) {
             log.info("创建羽毛球馆");
-            initialGymDb("badminton");
+            List<Court> courtList2 = new ArrayList<>();
+            Gym gym = Gym.builder()
+                    .sportKind("badminton")
+                    .courts(courtList2)
+                    .comments(new ArrayList<Comment>()).build();
+            gymRepository.save(gym);
+
+            int weeklength = 7;
+            int timelength = 14;
+            String[] templine = new String[timelength];
+            for (int i = 0; i < timelength; i++) {
+                templine[i] = "0";
+            }
+            String temp = String.join(",", templine);
+            String[] temprow = new String[weeklength];
+            for (int i = 0; i < weeklength; i++) {
+                temprow[i] = temp;
+            }
+
+            String beginTimeStatus = String.join("#", temprow);
+
+            courtList2.add(Court.builder().gym(gym).timeStatus(beginTimeStatus).build());
+            courtList2.add(Court.builder().gym(gym).timeStatus(beginTimeStatus).build());
+            courtList2.add(Court.builder().gym(gym).timeStatus(beginTimeStatus).build());
+            courtRepository.saveAll(courtList2);
+            gym.setCourts(courtList2);
+            gymRepository.save(gym);
         }
     }
 
     private void initialGymDb(String kind) {
-        List<Court> courtList = new ArrayList<>();
-        Gym gym = Gym.builder()
-                .sportKind(kind)
-                .courts(courtList)
-                .comments(new ArrayList<Comment>()).build();
-        gymRepository.save(gym);
 
-        int weeklength = 7;
-        int timelength = 14;
-        String[] templine = new String[weeklength];
-        for (int i = 0; i < timelength; i++) {
-            templine[i] = "0";
-        }
-        String temp = String.join(",",templine);
-        String[] temprow = new String[timelength];
-        for(int i = 0; i< weeklength; i++){
-            temprow[i] = temp;
-        }
-
-        String beginTimeStatus = String.join("#", temprow);
-
-        courtList.add(Court.builder().gym(gym).timeStatus(beginTimeStatus).build());
-        courtList.add(Court.builder().gym(gym).timeStatus(beginTimeStatus).build());
-        courtList.add(Court.builder().gym(gym).timeStatus(beginTimeStatus).build());
-        courtRepository.saveAll(courtList);
-        gym.setCourts(courtList);
-        gymRepository.save(gym);
     }
 
 }

@@ -57,7 +57,7 @@ public class SetRentableTimeController {
             return new RentableTimeResponse(false);
         }
         for (int weekNum : rentableTimeRequest.weekList) {
-            if (weekNum < 0 || weekNum >= 6) {
+            if (weekNum < 0 || weekNum >= 7) {
                 return new RentableTimeResponse(false);
             }
         }
@@ -68,10 +68,10 @@ public class SetRentableTimeController {
         }
 
         //设置场馆信息
-
         for (int i = 0; i < rentableTimeRequest.weekList.size(); i++) {
-
-            courtHandler.changeCourtForbiddenStatusToOpposite(court, rentableTimeRequest.weekList.get(i), rentableTimeRequest.timeList.get(i));
+            for (int j = 0; j < rentableTimeRequest.timeList.size(); j++) {
+                courtHandler.changeCourtForbiddenStatusToOpposite(court, rentableTimeRequest.weekList.get(i), rentableTimeRequest.timeList.get(j));
+            }
         }
         return new RentableTimeResponse(true);
     }

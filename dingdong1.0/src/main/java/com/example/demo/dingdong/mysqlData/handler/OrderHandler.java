@@ -32,7 +32,7 @@ public class OrderHandler {
             } else if ( LocalDate.now().with(TemporalAdjusters.nextOrSame(DayOfWeek.SUNDAY)).plusDays(1).isAfter(userOrder.getOrderDate())){
                 userOrder.setCancelable(false);
             }
-
         }
+        orderRepository.saveAll(orders);
     }
 }

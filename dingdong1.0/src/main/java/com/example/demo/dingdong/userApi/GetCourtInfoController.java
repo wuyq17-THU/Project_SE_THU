@@ -35,7 +35,7 @@ public class GetCourtInfoController {
     GymHandler gymHandler;
 
     @UserLoginToken
-    @PatchMapping("/api/user/court")
+    @PostMapping("/api/user/court")
     @ResponseBody
     public CourtInfoResponse GetCourtInfo(@RequestBody CourtIndexRequest courtIndexRequest) {
         Gym gym = gymHandler.findById(courtIndexRequest.gymId);
