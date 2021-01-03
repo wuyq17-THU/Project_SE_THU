@@ -33,7 +33,7 @@ export default {
     name: 'Select',
     methods:{
         orderT(){
-            this.$router.push('/ordert')
+            this.$router.push({name:'OrderT'})
         },
         orderB(){
             this.$router.push('/orderb')

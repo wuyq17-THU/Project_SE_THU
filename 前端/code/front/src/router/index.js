@@ -38,7 +38,7 @@ const routes = [
   },
   {
     path: '/orderb',
-    name: 'Orderb',
+    name: 'OrderB',
     component: OrderB
   },
   {

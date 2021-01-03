@@ -70,7 +70,7 @@ export default {
                         'password':pass
                     }).then((response) => {
 						console.log(response.data);
-						if(response.data.success === true){
+						if(response.data.success === 'true'){
 							console.log(response.data.success);
 							localStorage.setItem('token',response.data.msg);
 							this.$message({

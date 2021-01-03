@@ -248,7 +248,7 @@ export default {
 								type: 'success',
 								message: '预约成功'
                         });
-                        this.$router.push({name:'confirm'});
+                        this.$router.push('/confirm');
                     }                    
                 });
             
