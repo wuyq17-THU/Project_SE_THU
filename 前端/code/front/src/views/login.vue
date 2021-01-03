@@ -66,7 +66,7 @@ export default {
 			this.$refs[formName].validate(valid => {
 				if (valid) {
                     this.axios.patch('/api/user/login',{
-                        'userName':username,
+                        'username':username,
                         'password':pass
                     }).then((response) => {
 						console.log(response.data);
