@@ -77,7 +77,7 @@ export default {
 								type: 'success',
 								message: '登录成功'
 							});
-							this.$router.push({name:'First'});
+							this.$router.push('/first');
 						}
                     });
 					
