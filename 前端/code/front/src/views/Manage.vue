@@ -32,7 +32,7 @@ export default {
     return{
         active: 2,
         activeName:'first',
-        userType:'M'
+        userType:''
       }
     },
   components: {

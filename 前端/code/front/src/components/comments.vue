@@ -6,7 +6,7 @@
                 <div class="userid">COMMENTS_{{num_comments}}</div>
             </el-col>
             <el-col :span="18">                
-                <div class="comment">{{comments[num_comments].comment}}</div>
+                <div class="comment">{{comments[num_comments].content}}</div>
             </el-col>
         </el-row>
         <el-row :gutter="20">
@@ -15,7 +15,7 @@
                 <div class="userid">COMMENTS_{{num_comments+1}}</div>
             </el-col>
             <el-col :span="18">                
-                <div class="comment">{{comments[num_comments+1].comment}}</div>
+                <div class="comment">{{comments[num_comments+1].content}}</div>
             </el-col>
         </el-row>
         <el-pagination
@@ -91,21 +91,21 @@ export default {
       return {
         circleUrl: "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
         comments: [{
-            'comment':'场地环境好，打球很开心，五星好评0'
+            'content':'场地环境好，打球很开心，五星好评0'
         },{
-            'comment':'朋友一起打球很开心，五星好评1'
+            'content':'朋友一起打球很开心，五星好评1'
         },{
-            'comment':'场地环境好，打球很开心，五星好评2'
+            'content':'场地环境好，打球很开心，五星好评2'
         },{
-            'comment':'朋友一起打球很开心，五星好评3'
+            'content':'朋友一起打球很开心，五星好评3'
         },{
-            'comment':'场地环境好，打球很开心，五星好评4'
+            'content':'场地环境好，打球很开心，五星好评4'
         },{
-            'comment':'朋友一起打球很开心，五星好评5'
+            'content':'朋友一起打球很开心，五星好评5'
         },{
-            'comment':'场地环境好，打球很开心，五星好评6'
+            'content':'场地环境好，打球很开心，五星好评6'
         },{
-            'comment':'朋友一起打球很开心，五星好评7'
+            'content':'朋友一起打球很开心，五星好评7'
         },],
         textarea: '',
         num_comments: 0,     

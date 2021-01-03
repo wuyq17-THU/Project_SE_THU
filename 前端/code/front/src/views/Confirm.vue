@@ -19,7 +19,7 @@
               :data="history"
               style="width: 100%">
               <el-table-column
-                prop="gymId"
+                prop="gymKind"
                 label="场馆"
                 width="180">
               </el-table-column>
@@ -29,8 +29,8 @@
                 width="180">
               </el-table-column>
               <el-table-column
-                prop="weekNum"
-                label="星期">
+                prop="localdate"
+                label="日期">
               </el-table-column>
               <el-table-column
                 prop="timeNum"
@@ -63,21 +63,22 @@ export default {
   data(){
     return{
       history: [{        
-                    'gymId':0,
+                    'gymKind':'tennis',
                     'courtId':1,          
-                    'weekNum':3,
+                    'localdate':'2021-1-1',
                     'timeNum':8
                 },{        
-                    'gymId':0,
+                    'gymKind':'tennis',
                     'courtId':1,          
-                    'weekNum':3,
+                    'localdate':'2021-1-1',
                     'timeNum':8
                 },{        
-                    'gymId':0,
+                    'gymKind':'tennis',
                     'courtId':1,          
-                    'weekNum':3,
+                    'localdate':'2021-1-1',
                     'timeNum':8
                 },]
+    
     }
   },
   name: 'First',

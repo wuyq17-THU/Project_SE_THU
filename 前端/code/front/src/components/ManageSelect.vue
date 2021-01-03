@@ -79,21 +79,21 @@ export default {
           console.log({
             'gymId':'网球',
             'courtId':this.court_value1,
-            'weekNum':this.week_value1,
-            'timeNum':this.time_value1,
+            'weekList':this.week_value1,
+            'timeList':this.time_value1,
           });
           console.log({
             'gymId':'羽毛球',
             'courtId':this.court_value2,
-            'weekNum':this.week_value2,
-            'timeNum':this.time_value2,
+            'weekList':this.week_value2,
+            'timeList':this.time_value2,
           });
           this.axios.post('/api/manager/set',
           {        
               'gymId':0,
               'courtId':this.court_value1,          
-              'weekNum':this.week_value1,
-              'timeNum':this.time_value1
+              'weekList':this.week_value1,
+              'timeList':this.time_value1
           },
           {
               headers:{'Authorization':localStorage.getItem('token')}
@@ -110,8 +110,8 @@ export default {
           {        
               'gymId':1,
               'courtId':this.court_value2,          
-              'weekNum':this.week_value2,
-              'timeNum':this.time_value2
+              'weekList':this.week_value2,
+              'timeList':this.time_value2
           },
           {
               headers:{'Authorization':localStorage.getItem('token')}
