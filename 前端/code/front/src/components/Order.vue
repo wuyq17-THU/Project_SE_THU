@@ -214,10 +214,14 @@ export default {
                 }
                 ).then((response) => {
                     if(response.data.success === true){                        
-                        this.order_result = 1;
+                        this.$message({
+                          type:'success',
+                          message:'志愿一预约成功'                            
+                        });
+                        this.$router.push('/confirm');
                     }                    
                 });
-            this.axios.post('/api/user/rent/apply',
+                this.axios.post('/api/user/rent/apply',
                 {        
                     'gymId':this.gymId,
                     'courtId':this.court_value2,          
@@ -229,10 +233,14 @@ export default {
                 }
                 ).then((response) => {
                     if(response.data.success === true){                        
-                        this.order_result = 1;
+                        this.$message({
+                          type:'success',
+                          message:'志愿二预约成功'                            
+                        });
+                        this.$router.push('/confirm');
                     }                    
                 });
-            this.axios.post('/api/user/rent/apply',
+                this.axios.post('/api/user/rent/apply',
                 {        
                     'gymId':this.gymId,
                     'courtId':this.court_value3,          
@@ -243,14 +251,15 @@ export default {
                     headers:{'Authorization':localStorage.getItem('token')}
                 }
                 ).then((response) => {
-                    if(response.data.success === true && this.order_result === 2){                        
+                    if(response.data.success === true){                        
                         this.$message({
-								type: 'success',
-								message: '预约成功'
+                          type:'success',
+                          message:'志愿三预约成功'                            
                         });
                         this.$router.push('/confirm');
                     }                    
                 });
+            
             
         }).catch(() => {
           this.$message({

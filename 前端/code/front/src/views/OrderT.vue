@@ -28,10 +28,11 @@
             </div>
           </el-aside>
           <el-main>
-            <Order v-bind:gymId="0"></Order>            
+            <Order v-bind:gymId="2"></Order>            
             <div class="comments">
               <h1>评论</h1>
-              <Comments v-bind:gymId="0"></Comments>
+              <Comments v-bind:gymId="2"></Comments>
+              <Reply v-bind:gymId="2"></Reply>
             </div>
           </el-main>
         </el-container>
@@ -46,6 +47,7 @@ import Navi from '@/components/Navi.vue'
 import Step from '@/components/Step.vue'
 import Comments from '../components/comments.vue'
 import Order from '@/components/Order.vue'
+import Reply from '../components/reply.vue'
 
 export default {
   name: 'First',
@@ -61,6 +63,7 @@ export default {
     Step,
     Order,
     Comments,
+    Reply,
   },
   methods: {
     handleClick(tab, event) {

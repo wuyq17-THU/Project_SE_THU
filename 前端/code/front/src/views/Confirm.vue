@@ -62,22 +62,7 @@ import Step from '@/components/Step.vue'
 export default {
   data(){
     return{
-      history: [{        
-                    'gymKind':'tennis',
-                    'courtId':1,          
-                    'localdate':'2021-1-1',
-                    'timeNum':8
-                },{        
-                    'gymKind':'tennis',
-                    'courtId':1,          
-                    'localdate':'2021-1-1',
-                    'timeNum':8
-                },{        
-                    'gymKind':'tennis',
-                    'courtId':1,          
-                    'localdate':'2021-1-1',
-                    'timeNum':8
-                },]
+      history: []
     
     }
   },
@@ -93,7 +78,7 @@ export default {
           headers:{'Authorization':localStorage.getItem('token')},          
       }).then((response) => {
             console.log(response.data);
-            this.history=response.data.orders;            
+            this.history=response.data.userOrders;            
       });
   },
   methods:{

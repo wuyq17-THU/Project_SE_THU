@@ -76,7 +76,7 @@ export default {
     methods: {
     
       manage(){
-          console.log({
+         /* console.log({
             'gymId':'网球',
             'courtId':this.court_value1,
             'weekList':this.week_value1,
@@ -87,10 +87,10 @@ export default {
             'courtId':this.court_value2,
             'weekList':this.week_value2,
             'timeList':this.time_value2,
-          });
+          });*/
           this.axios.post('/api/manager/set',
           {        
-              'gymId':0,
+              'gymId':2,
               'courtId':this.court_value1,          
               'weekList':this.week_value1,
               'timeList':this.time_value1
@@ -108,7 +108,7 @@ export default {
           });
           this.axios.post('/api/manager/set',
           {        
-              'gymId':1,
+              'gymId':6,
               'courtId':this.court_value2,          
               'weekList':this.week_value2,
               'timeList':this.time_value2

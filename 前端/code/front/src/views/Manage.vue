@@ -48,20 +48,22 @@ export default {
         headers:{'Authorization':localStorage.getItem('token')},
     }).then((response) => {
             console.log(response.data);
-            this.userType=response.data.userType;            
+            this.userType=response.data.userType;  
+            console.log(this.userType);
+            if(this.userType === "M"){
+            this.$message({
+                  type: 'success',
+                  message: '是管理员，可以进行设置'
+                });
+              }
+              else{
+                this.$message({
+                  type: 'error',
+                  message: '不是管理员，没有权限设置'
+                })
+    }
     }); 
-    if(this.userType === 'M'){
-      this.$message({
-        type: 'success',
-        message: '是管理员，可以进行设置'
-      });
-    }
-    else{
-      this.$message({
-        type: 'error',
-        message: '不是管理员，没有权限设置'
-      })
-    }
+    
   },
   methods: {
 
