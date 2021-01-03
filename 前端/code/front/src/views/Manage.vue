@@ -9,11 +9,10 @@
         </el-header>
         <el-container id="main">
           <el-main>
-              <h1>网球场</h1>
-              <div class="table"><ManageTable></ManageTable></div>
-              <h1>羽毛球场</h1>
-              <div class="table"><ManageTable></ManageTable></div> 
-              <el-button type="primary" @click="manage">确认设置</el-button>                      
+              
+              <div class="table"><ManageSelect v-bind:userType=this.userType></ManageSelect></div>
+              
+                                   
           </el-main>
         </el-container>
       </el-container>
@@ -25,7 +24,7 @@
 import Head from '@/components/Head.vue'
 import Navi from '@/components/Navi.vue'
 
-import ManageTable from '@/components/ManageTable.vue'
+import ManageSelect from '@/components/ManageSelect.vue'
 
 export default {
   name: 'First',
@@ -33,16 +32,39 @@ export default {
     return{
         active: 2,
         activeName:'first',
+        userType:'M'
       }
     },
   components: {
     Head,
     Navi,
-    ManageTable,
+    ManageSelect,
     
     
   },
+  mounted(){
+    this.axios.get('api/user/info',
+    {
+        headers:{'Authorization':localStorage.getItem('token')},
+    }).then((response) => {
+            console.log(response.data);
+            this.userType=response.data.userType;            
+    }); 
+    if(this.userType === 'M'){
+      this.$message({
+        type: 'success',
+        message: '是管理员，可以进行设置'
+      });
+    }
+    else{
+      this.$message({
+        type: 'error',
+        message: '不是管理员，没有权限设置'
+      })
+    }
+  },
   methods: {
+
     manage(){
         this.$router.push('/');
         this.$message({
