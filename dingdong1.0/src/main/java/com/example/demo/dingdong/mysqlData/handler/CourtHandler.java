@@ -12,17 +12,17 @@ public class CourtHandler {
     private CourtRepository courtRepository;
 
     public boolean changeCourtStatusToRented(Court court, int weekNum, int timeNum) {
-        if (court.getTimeStatus()[weekNum][timeNum] != 0) return false;
-        court.setSpecificTimeStatus(weekNum,timeNum,1);
+        if (court.getVectorTimeStatus()[weekNum][timeNum] != 0) return false;
+        court.setVectorTimeStatus(weekNum, timeNum, 1);
         return true;
     }
 
     public void changeCourtForbiddenStatusToOpposite(Court court, int weekNum, int timeNum) {
-        if (court.getTimeStatus()[weekNum][timeNum] != 1) {
-            if (court.getTimeStatus()[weekNum][timeNum] == 0) {
-                court.setSpecificTimeStatus(weekNum,timeNum,1);
+        if (court.getVectorTimeStatus()[weekNum][timeNum] != 1) {
+            if (court.getVectorTimeStatus()[weekNum][timeNum] == 0) {
+                court.setVectorTimeStatus(weekNum, timeNum, 1);
             } else {
-                court.setSpecificTimeStatus(weekNum,timeNum,0);
+                court.setVectorTimeStatus(weekNum, timeNum, 0);
             }
         }
     }
@@ -30,13 +30,18 @@ public class CourtHandler {
     public void changeAllCourtStatusToNextWeek() {
         Iterable<Court> courts = courtRepository.findAll();
         for (Court court : courts) {
-            int[][] timeStatus = new int[court.getTimeStatus().length][court.getTimeStatus()[0].length];
-            for (int i = 0; i < timeStatus.length; i++) {
-                for (int j = 0; j < timeStatus[0].length; j++) {
-                    timeStatus[i][j] = 0;
-                }
+            int weeklength = court.getVectorTimeStatus().length;
+            int timelength = court.getVectorTimeStatus()[0].length;
+            String[] templine = new String[weeklength];
+            for (int i = 0; i < timelength; i++) {
+                templine[i] = "0";
             }
-            court.setTimeStatus(timeStatus);
+            String temp = String.join(",",templine);
+            String[] temprow = new String[timelength];
+            for(int i = 0; i< weeklength; i++){
+                temprow[i] = temp;
+            }
+            court.setTimeStatus(String.join("#", temprow));
         }
     }
 }

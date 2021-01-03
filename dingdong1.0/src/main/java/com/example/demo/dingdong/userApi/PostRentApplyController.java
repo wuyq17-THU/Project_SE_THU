@@ -40,6 +40,7 @@ public class PostRentApplyController {
         String msg;
     }
 
+    @Data
     private static class RentApplyRequest {
         int gymId;
         int courtId;
@@ -67,6 +68,11 @@ public class PostRentApplyController {
             return new RentApplyResponse(false, "rent time is illegal");
         }
 
+        //在场地中更改状态
+        if (!courtHandler.changeCourtStatusToRented(court, rentApplyRequest.weekNum, rentApplyRequest.timeNum)) {
+            return new RentApplyResponse(false, "court is rented or unavailable");
+        }
+
         //计算日期，生成并保存订单
         LocalDate orderDate = LocalDate.now().plusWeeks(1).with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY)).plusDays(rentApplyRequest.weekNum);
         UserOrder userOrder = new UserOrder(0, gym, court, userHandler.getUserByName(username), true, false, orderDate, rentApplyRequest.timeNum);
@@ -74,12 +80,6 @@ public class PostRentApplyController {
 
         //在用户中添加历史订单
         userHandler.addHistoryOrderByUsername(username, userOrder);
-
-        //在场地中更改状态
-        if (!courtHandler.changeCourtStatusToRented(court, rentApplyRequest.weekNum, rentApplyRequest.timeNum)) {
-            return new RentApplyResponse(false, "court is rented of unavailable");
-        }
-
 
         return new RentApplyResponse(true, null);
     }

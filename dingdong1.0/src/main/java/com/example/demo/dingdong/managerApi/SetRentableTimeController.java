@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Iterator;
 import java.util.List;
 
 @RestController
@@ -32,15 +33,12 @@ public class SetRentableTimeController {
         boolean success;
     }
 
-    private static class SetParams {
-        int weekNum;
-        int timeNum;
-    }
-
+    @Data
     private static class RentableTimeRequest {
         int gymId;
         int courtId;
-        List<SetParams> setList;
+        List<Integer> weekList;
+        List<Integer> timeList;
     }
 
     @UserLoginToken
@@ -58,15 +56,22 @@ public class SetRentableTimeController {
         } catch (IndexOutOfBoundsException e) {
             return new RentableTimeResponse(false);
         }
-        for (SetParams params : rentableTimeRequest.setList) {
-            if ((params.weekNum < 0 || params.weekNum >= 7) || (params.timeNum < 0 || params.timeNum >= 14)) {//todo: 每天的时间未直接确定，数据可能需要更改
+        for (int weekNum : rentableTimeRequest.weekList) {
+            if (weekNum < 0 || weekNum >= 6) {
+                return new RentableTimeResponse(false);
+            }
+        }
+        for (int timeNum : rentableTimeRequest.timeList) {
+            if (timeNum < 0 || timeNum >= 13) {
                 return new RentableTimeResponse(false);
             }
         }
 
         //设置场馆信息
-        for (SetParams params : rentableTimeRequest.setList) {
-            courtHandler.changeCourtForbiddenStatusToOpposite(court, params.weekNum, params.timeNum);
+
+        for (int i = 0; i < rentableTimeRequest.weekList.size(); i++) {
+
+            courtHandler.changeCourtForbiddenStatusToOpposite(court, rentableTimeRequest.weekList.get(i), rentableTimeRequest.timeList.get(i));
         }
         return new RentableTimeResponse(true);
     }

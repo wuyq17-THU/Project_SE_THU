@@ -31,6 +31,7 @@ public class AddCourtCommentController {
         String msg;
     }
 
+    @Data
     private static class CourtCommentRequest{
         int gymId;
         String comment;

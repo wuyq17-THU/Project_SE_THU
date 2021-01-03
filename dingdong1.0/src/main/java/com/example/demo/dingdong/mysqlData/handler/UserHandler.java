@@ -30,7 +30,9 @@ public class UserHandler {
     }
 
     public void addHistoryOrderByUsername(String username, UserOrder userOrder) {
-        getUserByName(username).getHistoryUserOrder().add(userOrder);
+        User user = getUserByName(username);
+        user.addOrder(userOrder);
+        userRepository.save(user);
     }
 
     public List<UserOrder> getHistoryOrderByUsername(String username) {
