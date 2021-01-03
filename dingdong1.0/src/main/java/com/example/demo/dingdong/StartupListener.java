@@ -42,6 +42,26 @@ public class StartupListener {
             userRepository.save(user);
         }
 
+        if (userRepository.findByUsername("ordinary user1") == null) {
+            log.info("创建普通用户");
+            User user = User.builder()
+                    .password("ordinary user1")
+                    .username("123456")
+                    .userType(User.UserType.U)
+                    .build();
+            userRepository.save(user);
+        }
+
+        if (userRepository.findByUsername("ordinary user2") == null) {
+            log.info("创建普通用户");
+            User user = User.builder()
+                    .password("ordinary user2")
+                    .username("654321")
+                    .userType(User.UserType.U)
+                    .build();
+            userRepository.save(user);
+        }
+
         if (gymRepository.findBySportKind("tennis") == null) {
             log.info("创建网球馆");
             List<Court> courtList1 = new ArrayList<>();
